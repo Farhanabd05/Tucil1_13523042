@@ -1,0 +1,44 @@
+A G G G C 
+A A B C C 
+E E B B F 
+E E D F F 
+E D D F F 
+Time execution: 64 ms
+Banyak Kasus: 5903 ms
+
+A G G G C 
+A A B C C 
+E E B B F 
+E E D F F 
+E D D F F 
+Time execution: 78 ms
+Banyak Kasus: 5903 ms
+
+A G G G C 
+A A B C C 
+E E B B F 
+E E D F F 
+E D D F F 
+Time execution: 63 ms
+Banyak Kasus: 5903 ms
+
+A G G G C 
+A A B C C 
+E E B B F 
+E E D F F 
+E D D F F 
+Time execution: 102 ms
+Banyak Kasus: 5903 ms
+
+X X X Y Y * O O O 
+X * * * Z * * * O
+X * U * Z Z Z * O 
+* * U * Z * * * O
+W W U T T S P P P
+W * * * T * P * *
+W * T T T * P * Q
+W * * * R * * * Q
+W W W * R R Q Q Q
+
+Waktu pencarian: 69155 ms
+Banyak kasus yang ditinjau: 1318239011

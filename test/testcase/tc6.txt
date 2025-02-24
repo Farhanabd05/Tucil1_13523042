@@ -1,0 +1,4 @@
+5 5
+DEFAULT
+A
+AA

@@ -22,3 +22,24 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+/lib
+/12
+
+/javafx-sdk-23.0.2
+
+/my-javafx-runtime
+
+*.exe
+
+loop.txt
+log.txt
+versi.txt
+bruteforce_.txt
+bruteforce_bitset.txt
+gui.txt
+MANIFEST.MF
+
+*.bat
+
+*.tmp
+*.docx
