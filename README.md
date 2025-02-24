@@ -1,4 +1,4 @@
-# Word Search Puzzle Solver
+# IQ Puzzle Pro Solver
 Disusun untuk memenuhi Tugas Kecil 1 IF2211 Strategi Algoritma "Penyelesaian *IQ Puzzle Pro* dengan Algoritma *Brute Force*".
 
 ## Daftar Isi
