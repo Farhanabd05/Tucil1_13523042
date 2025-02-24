@@ -2,7 +2,9 @@ package DataStructure;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Block {
     private char id;
@@ -11,7 +13,6 @@ public class Block {
     public Block(char id, char[][] shape) {
         this.id = id;
         this.shape = shape;
-        // System.out.println("Block initialized with ID: " + id);
     }
 
     public char getId() { return id; }
@@ -20,7 +21,6 @@ public class Block {
     public int getWidth() { return shape[0].length; }
 
     public Block rotate() {
-        // System.out.println("Rotating block " + id);
         int rows = shape.length, cols = shape[0].length;
         char[][] rotated = new char[cols][rows];
         for (int i = 0; i < rows; i++)
@@ -30,7 +30,6 @@ public class Block {
     }
 
     public Block mirror() {
-        // System.out.println("Mirroring block " + id);
         int rows = shape.length, cols = shape[0].length;
         char[][] mirrored = new char[rows][cols];
         for (int i = 0; i < rows; i++)
@@ -40,7 +39,6 @@ public class Block {
     }
 
     public void displayBlock() {
-        // System.out.println("Displaying block " + id);
         for (char[] row : shape) {
             for (char cell : row) {
                 System.out.print(cell + " ");
@@ -49,18 +47,39 @@ public class Block {
         }
     }
 
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Block block = (Block) obj;
+        return Arrays.deepEquals(this.shape, block.shape);
+    }
+
+    @Override
+    public int hashCode() {
+        return Arrays.deepHashCode(this.shape); 
+    }
+
     public List<Block> getAllTransformations() {
+        Set<Block> uniqueTransformations = new HashSet<>();
         List<Block> transformations = new ArrayList<>();
+
         Block current = this;
         for (int i = 0; i < 4; i++) {
-            transformations.add(current);
+            if (uniqueTransformations.add(current)) { 
+                transformations.add(current);
+            }
+
             Block mirrored = current.mirror();
-            transformations.add(mirrored);
+            if (uniqueTransformations.add(mirrored)) { // untuk delete duplikasi
+                transformations.add(mirrored);
+            }
+
             current = current.rotate();
         }
         return transformations;
     }
 
+    // untuk debugging aza
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -70,7 +89,7 @@ public class Block {
         for (char[] row : shape) {
             sb.append(Arrays.toString(row)).append(", ");
         }
-        sb.delete(sb.length() - 2, sb.length()); // hapus koma terakhir
+        sb.delete(sb.length() - 2, sb.length()); 
         sb.append("}");
         return sb.toString();
     }
