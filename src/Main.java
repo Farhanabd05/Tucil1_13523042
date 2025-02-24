@@ -43,11 +43,13 @@ public class Main {
                 if (response.equals("ya")) {
                     System.out.print("Apa format file yang anda pilih? (image/text) ");
                     String response2 = scanner.nextLine().trim().toLowerCase();
+                    String solutionPath = currentDir.substring(0, currentDir.lastIndexOf(File.separator)) + File.separator + "test" + File.separator + "solution"; 
+
                     if (response2.equals("image")) {
-                        String filename = "solution_" + executionTime+ "_" + solver.getIterations() + ".png";
+                        String filename = solutionPath + File.separator + "solution_" + fileName + ".png";
                         OutputHandler.saveBoardAsImage(board, filename, executionTime, solver.getIterations());   
                     } else if (response2.equals("text")) {
-                        String filename = "solution.txt";
+                        String filename = solutionPath + File.separator + "solution_" + fileName + ".txt";
                         OutputHandler.saveBoardAsText(board, filename, executionTime, solver.getIterations());
                     } else {
                         System.out.println("Format file tidak valid. Silakan coba lagi.");
